@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>365 Days of Code</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-left">
+        <h1>365 Days of Code</h1>
+        <p>Low-Level Systems Programming & Backend Engineering — a self-directed journey, one day at a time.</p>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="value" id="currentDay">1</div>
+          <div class="label">Current Day</div>
+        </div>
+        <div class="hero-stat accent-green">
+          <div class="value" id="streak">0</div>
+          <div class="label">Day Streak 🔥</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title"><span class="icon" style="background:var(--green)"></span> Activity Heatmap</h2>
+        <span class="card-badge" id="heatmapBadge">365 Days</span>
+      </div>
+      <div class="heatmap-scroll">
+        <div class="heatmap-labels" id="dayLabels"></div>
+        <div class="heatmap-body">
+          <div class="heatmap-months" id="heatmapMonths"></div>
+          <div class="heatmap-grid" id="heatmapGrid"></div>
+        </div>
+      </div>
+      <div class="heatmap-legend">
+        <span>Less</span>
+        <span class="swatch" style="background:rgba(255,255,255,0.03)"></span>
+        <span class="swatch" style="background:rgba(34,197,94,0.4)"></span>
+        <span class="swatch" style="background:rgba(34,197,94,0.7)"></span>
+        <span class="swatch" style="background:var(--green)"></span>
+        <span>More</span>
+      </div>
+    </div>
+
+    <!-- Progress Line Chart -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title"><span class="icon" style="background:var(--cyan)"></span> Daily Progress</h2>
+        <span class="card-badge">Activity Over Time</span>
+      </div>
+      <div class="chart-area">
+        <canvas id="progressChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Two Column: Today's Log + Timeline -->
+    <div class="two-col">
+
+      <!-- Today's Log Form -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title"><span class="icon" style="background:var(--accent)"></span> Log Today</h2>
+        </div>
+        <form id="logForm">
+          <div style="margin-bottom:1.25rem;">
+            <label style="display:block;font-size:0.78rem;color:var(--text-secondary);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">What did you work on?</label>
+            <input type="text" id="logTitle" placeholder="e.g. Built a linked list from scratch" required
+              style="width:100%;padding:0.9rem 1.1rem;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-primary);font-family:inherit;font-size:0.95rem;outline:none;transition:border-color 0.2s;">
+          </div>
+          <div style="margin-bottom:1.25rem;">
+            <label style="display:block;font-size:0.78rem;color:var(--text-secondary);font-weight:500;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Notes</label>
+            <textarea id="logContent" placeholder="Describe what you learned, struggled with, or built..." required
+              style="width:100%;padding:0.9rem 1.1rem;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-primary);font-family:inherit;font-size:0.95rem;outline:none;resize:vertical;min-height:120px;transition:border-color 0.2s;"></textarea>
+          </div>
+          <button type="submit" style="width:100%;padding:0.9rem;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-md);font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.2s;letter-spacing:-0.01em;">
+            Log Day ✨
+          </button>
+        </form>
+      </div>
+
+      <!-- Journey Timeline -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title"><span class="icon" style="background:var(--purple)"></span> Journey Timeline</h2>
+          <span class="card-badge" id="entryCount">0 entries</span>
+        </div>
+        <div class="timeline-list" id="timeline"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
